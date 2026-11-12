@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMILA OS — операційна CRM стоматологічної клініки · KINETIA</title>
+<meta name="description" content="SMILA OS — демонстраційна CRM для стоматологічної клініки: ліди, пайплайн, записи, задачі, автоматизації, аналітика джерел і утримання пацієнтів. Демо KINETIA.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#050807">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23050807'/%3E%3Cpath%20d='M16%206l8%204.6v9.2L16%2024.4%208%2019.8v-9.2z'%20fill='none'%20stroke='%2319DFA0'%20stroke-width='1.6'/%3E%3Ccircle%20cx='16'%20cy='15.2'%20r='2.4'%20fill='%237AFFCB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/industries/dentistry/crm/assets/crm.css">
+</head>
+<body class="crm-body">
+
+<a class="skip" href="#crmMain">Перейти до вмісту</a>
+
+<!-- ============ LOGIN GATE ============ -->
+<div class="gate" id="gate" aria-labelledby="gateTitle">
+  <div class="gate-visual" aria-hidden="true">
+    <span class="gate-grid"></span>
+    <span class="gate-glow"></span>
+    <div class="gate-brand"><span class="brand-mark"></span><b>KINETIA</b><i>×</i><span>SMILA</span></div>
+    <div class="gate-copy">
+      <p class="mono">DENTAL OPERATING SYSTEM · ДЕМО</p>
+      <h1>Клініка працює.<br><span>Система бачить усе.</span></h1>
+      <p>Єдиний робочий простір адміністраторів: звернення, записи, супровід, автоматизації та аналітика джерел. Дані умовні.</p>
+      <ul class="gate-points">
+        <li><b>12</b><span>етапів пайплайну пацієнта</span></li>
+        <li><b>10</b><span>автоматизацій супроводу</span></li>
+        <li><b>9</b><span>каналів залучення</span></li>
+      </ul>
+    </div>
+    <div class="gate-foot mono">DEMO ENVIRONMENT · NO REAL PATIENTS · NO MESSAGES SENT</div>
+  </div>
+
+  <div class="gate-panel">
+    <form class="gate-form" id="loginForm" novalidate>
+      <div class="gate-form-head">
+        <span class="brand-mark"></span>
+        <div>
+          <b>SMILA<span>OS</span></b>
+          <p class="mono">CRM · ДЕМО-ДОСТУП</p>
+        </div>
+      </div>
+      <h2 id="gateTitle">Вхід до системи</h2>
+      <p class="gate-sub">Демонстраційний вхід без реальної автентифікації. Оберіть адміністратора.</p>
+
+      <label class="field">
+        <span>Email</span>
+        <input id="loginEmail" type="email" autocomplete="username" value="olena@smila.demo" required>
+      </label>
+      <label class="field">
+        <span>Пароль</span>
+        <input id="loginPass" type="password" autocomplete="current-password" value="demo2026" required>
+      </label>
+      <label class="field">
+        <span>Роль у демо</span>
+        <select id="loginRole">
+          <option value="olena">Олена Ткач — адміністраторка</option>
+          <option value="natalia">Наталія Лисенко — адміністраторка</option>
+          <option value="andrii">Андрій Мельник — координатор пацієнтів</option>
+          <option value="manager">Керівниця клініки — повний доступ</option>
+        </select>
+      </label>
+      <p class="gate-error" id="loginError" role="alert" hidden></p>
+      <button class="btn pri wide" type="submit">Увійти в демо <span class="arw">→</span></button>
+      <p class="gate-note">Натискаючи «Увійти», ви погоджуєтесь, що це демонстраційне середовище з умовними даними. Реальні пацієнти, клінічні записи та комунікації не використовуються.</p>
+    </form>
+    <div class="gate-links">
+      <a href="/industries/dentistry/demo/">Сайт клініки</a>
+      <a href="/industries/dentistry/presentation/">Презентація KINETIA</a>
+      <a href="/industries/dentistry">← Демо-середовище</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CRM APP ============ -->
+<div class="shell" id="shell" hidden>
+
+  <aside class="side" id="side" aria-label="Головна навігація CRM">
+    <div class="side-brand">
+      <span class="brand-mark"></span>
+      <div><b>SMILA<span>OS</span></b><p class="mono">DENTAL CRM</p></div>
+    </div>
+
+    <nav class="side-nav" id="sideNav">
+      <p class="side-label">Робота</p>
+      <button class="nav-item" data-view="dashboard"><span class="ico">◧</span>Огляд</button>
+      <button class="nav-item" data-view="leads"><span class="ico">☰</span>Ліди<span class="pill" data-count="leads">0</span></button>
+      <button class="nav-item" data-view="patients"><span class="ico">◍</span>Пацієнти</button>
+      <button class="nav-item" data-view="pipeline"><span class="ico">▤</span>Пайплайн</button>
+      <button class="nav-item" data-view="calendar"><span class="ico">▦</span>Календар</button>
+      <button class="nav-item" data-view="tasks"><span class="ico">✓</span>Задачі<span class="pill warn" data-count="tasks">0</span></button>
+      <p class="side-label">Система</p>
+      <button class="nav-item" data-view="automations"><span class="ico">⟳</span>Автоматизації</button>
+      <button class="nav-item" data-view="analytics"><span class="ico">◔</span>Аналітика</button>
+      <button class="nav-item" data-view="settings"><span class="ico">⚙</span>Налаштування</button>
+    </nav>
+
+    <div class="side-foot">
+      <div class="side-user">
+        <span class="avatar" id="sideAvatar">ОТ</span>
+        <div><b id="sideUser">Олена Ткач</b><p id="sideRole">Адміністраторка</p></div>
+        <button class="icon-btn" id="logoutBtn" title="Вийти з демо" aria-label="Вийти з демо">⏻</button>
+      </div>
+      <div class="side-links">
+        <a href="/industries/dentistry/demo/">Сайт клініки ↗</a>
+        <a href="/industries/dentistry/presentation/">Презентація ↗</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main" id="crmMain">
+    <header class="topbar">
+      <button class="icon-btn burger" id="sideToggle" aria-label="Відкрити навігацію" aria-expanded="false">☰</button>
+      <div class="crumbs">
+        <span>SMILA OS</span><i>/</i><b id="crumbView">Огляд</b>
+      </div>
+      <div class="topbar-tools">
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="globalSearch" type="search" placeholder="Пошук пацієнта, телефону, ID…" aria-label="Глобальний пошук">
+        </label>
+        <div class="range" role="group" aria-label="Період аналітики">
+          <button data-range="1">День</button>
+          <button data-range="7">7 днів</button>
+          <button data-range="30" class="on">30 днів</button>
+        </div>
+        <button class="icon-btn" id="demoReset" title="Скинути демо-дані" aria-label="Скинути демо-дані">↺</button>
+        <span class="demo-chip"><i></i>DEMO</span>
+      </div>
+    </header>
+
+    <div class="content" id="viewRoot" tabindex="-1"></div>
+  </div>
+</div>
+
+<!-- drawer / modal -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Деталі ліда" role="dialog" aria-modal="true"></aside>
+<div class="modal-wrap" id="modalWrap" hidden>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/industries/dentistry/assets/demo-data.js"></script>
+<script src="/industries/dentistry/crm/assets/crm.js"></script>
+</body>
+</html>
